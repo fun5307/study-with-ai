@@ -53,12 +53,10 @@ const journalInput = $("#journal-input");
 const now = new Date();
 const todayKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
 let reflectionEntries = JSON.parse(localStorage.getItem("reflectionEntries") || "[]");
-const legacyReflection = localStorage.getItem("todayReflection");
-if (legacyReflection && !reflectionEntries.some((entry) => entry.key === todayKey)) { reflectionEntries.unshift({ key: todayKey, date: $("#today-date").textContent, text: legacyReflection }); localStorage.setItem("reflectionEntries", JSON.stringify(reflectionEntries)); }
-journalInput.value = reflectionEntries.find((entry) => entry.key === todayKey)?.text || "";
+journalInput.value = "";
 journalInput.addEventListener("focus", () => { journalInput.placeholder = ""; }, { once: true });
 function renderReflectionHistory() { const list = $("#reflection-history-list"); list.innerHTML = ""; if (!reflectionEntries.length) { list.innerHTML = '<li class="empty-message">아직 저장한 묵상이 없어요.</li>'; return; } reflectionEntries.forEach((entry) => { const item = document.createElement("li"); const date = document.createElement("time"); const text = document.createElement("p"); date.textContent = entry.date; text.textContent = entry.text; item.append(date, text); list.append(item); }); }
-$("#journal-form").onsubmit = (event) => { event.preventDefault(); const reflection = journalInput.value.trim(); if (!reflection) { message("한 줄 묵상을 적은 뒤 저장해 보세요."); return; } const entry = { key: todayKey, date: $("#today-date").textContent, text: reflection }; reflectionEntries = [entry, ...reflectionEntries.filter((item) => item.key !== todayKey)]; localStorage.setItem("reflectionEntries", JSON.stringify(reflectionEntries)); localStorage.setItem("todayReflection", reflection); renderReflectionHistory(); message("날짜와 함께 오늘의 묵상을 저장했어요."); };
+$("#journal-form").onsubmit = (event) => { event.preventDefault(); const reflection = journalInput.value.trim(); if (!reflection) { message("한 줄 묵상을 적은 뒤 저장해 보세요."); return; } const entry = { key: todayKey, date: $("#today-date").textContent, text: reflection }; reflectionEntries = [entry, ...reflectionEntries.filter((item) => item.key !== todayKey)]; localStorage.setItem("reflectionEntries", JSON.stringify(reflectionEntries)); renderReflectionHistory(); message("날짜와 함께 오늘의 묵상을 저장했어요."); };
 $("#reflection-history-button").onclick = () => { $("#reflection-history").hidden = !$("#reflection-history").hidden; renderReflectionHistory(); };
 $("#close-reflection-history-button").onclick = () => { $("#reflection-history").hidden = true; };
 document.querySelectorAll(".topic-button").forEach((button) => button.onclick = () => { currentTopic = button.dataset.topic; document.querySelectorAll(".topic-button").forEach((b) => b.classList.toggle("is-active", b === button)); showWord(filtered()[0]); message(`${currentTopic} 주제의 말씀을 보고 있어요.`); });
