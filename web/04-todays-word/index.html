@@ -22,8 +22,9 @@
     <p class="reflection outside-reflection" id="reflection-text"></p>
     <section class="journal-section" aria-labelledby="journal-title">
       <div class="journal-heading"><p class="journal-eyebrow">MY REFLECTION</p><h2 id="journal-title">오늘의 묵상</h2><p>오늘 마음에 남은 생각을 천천히 적어 보세요.</p></div>
-      <form id="journal-form"><label class="sr-only" for="journal-input">오늘의 묵상</label><textarea id="journal-input" rows="5" maxlength="200" placeholder="여기에 오늘의 묵상을 적어 보세요."></textarea><div class="journal-footer"><span>이 내용은 이 브라우저에만 저장됩니다.</span><button class="journal-save-button" type="submit">묵상 저장하기</button></div></form>
+      <form id="journal-form"><label class="sr-only" for="journal-input">오늘의 묵상</label><textarea id="journal-input" rows="5" maxlength="200" placeholder="여기에 오늘의 묵상을 적어 보세요."></textarea><div class="journal-footer"><span>이 내용은 이 브라우저에만 저장됩니다.</span><div class="journal-buttons"><button class="journal-history-button" id="reflection-history-button" type="button">저장한 묵상 보기</button><button class="journal-save-button" type="submit">묵상 저장하기</button></div></div></form>
     </section>
+    <section class="reflection-history" id="reflection-history" hidden aria-labelledby="reflection-history-title"><div class="saved-heading"><h2 id="reflection-history-title">저장한 묵상</h2><button class="text-button" id="close-reflection-history-button" type="button">닫기</button></div><ul class="reflection-history-list" id="reflection-history-list"></ul></section>
     <div class="actions"><button class="primary-button" id="random-button" type="button">랜덤 말씀 보기 <span>→</span></button><button class="secondary-button" id="share-button" type="button">사이트 공유하기</button><button class="secondary-button" id="saved-button" type="button">저장한 말씀 <span id="saved-count">0</span></button></div>
     <section class="saved-section" id="saved-section" hidden><div class="saved-heading"><h2>저장한 말씀</h2><button class="text-button" id="close-saved-button" type="button">닫기</button></div><ul class="saved-list" id="saved-list"></ul></section>
     <p class="hint" id="status-message">주제를 선택하거나 랜덤 버튼을 눌러 보세요.</p>

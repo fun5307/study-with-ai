@@ -92,13 +92,16 @@ button:focus-visible, textarea:focus-visible { outline: 3px solid var(--accent);
 
 .journal-section textarea::placeholder { color: var(--muted); }
 .journal-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; color: var(--muted); font-size: .78rem; }
+.journal-buttons { display: flex; gap: 8px; }
 .journal-save-button { padding: 11px 16px; border-radius: 999px; color: white; background: var(--green); font-weight: 700; }
+.journal-history-button { padding: 10px 12px; border: 1px solid var(--border); border-radius: 999px; color: var(--ink); background: transparent; font-size: .82rem; }
 .actions { margin-top: 26px; gap: 10px; }
 .primary-button, .secondary-button { padding: 13px 18px; border-radius: 999px; font-weight: 700; transition: transform 160ms ease, background 160ms ease; }
 .primary-button { color: white; background: var(--green); }
 .secondary-button { border: 1px solid var(--border); color: var(--ink); background: var(--card); }
 .primary-button:hover, .secondary-button:hover { transform: translateY(-2px); }
 .saved-section { margin-top: 28px; padding: 22px; border: 1px solid var(--border); border-radius: 18px; text-align: left; background: var(--card); }
+.reflection-history { margin-top: 14px; padding: 22px; border: 1px solid var(--border); border-radius: 18px; text-align: left; background: var(--card); }
 .saved-heading { display: flex; align-items: center; justify-content: space-between; }
 .text-button { color: var(--green); background: transparent; font-weight: 700; }
 .saved-list { display: grid; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
@@ -106,6 +109,10 @@ button:focus-visible, textarea:focus-visible { outline: 3px solid var(--accent);
 .saved-list strong, .saved-list span { display: block; }
 .saved-list strong { font-family: "Gowun Batang", serif; font-weight: 400; }
 .saved-list span { margin-top: 6px; color: var(--accent); font-size: .83rem; font-weight: 700; }
+.reflection-history-list { display: grid; gap: 12px; margin: 18px 0 0; padding: 0; list-style: none; }
+.reflection-history-list li { padding: 14px; border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; background: rgba(255,255,255,.22); }
+.reflection-history-list time { color: var(--accent); font-size: .82rem; font-weight: 700; }
+.reflection-history-list p { margin: 8px 0 0; color: var(--ink); line-height: 1.65; white-space: pre-wrap; }
 .empty-message, .hint { color: var(--muted); }
 .hint { margin: 16px 0 0; font-size: .82rem; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -115,4 +122,5 @@ button:focus-visible, textarea:focus-visible { outline: 3px solid var(--accent);
   .actions { display: grid; grid-template-columns: 1fr 1fr; }
   .primary-button { grid-column: 1 / -1; }
   .journal-footer { align-items: flex-end; flex-direction: column; }
+  .journal-buttons { width: 100%; justify-content: flex-end; }
 }
