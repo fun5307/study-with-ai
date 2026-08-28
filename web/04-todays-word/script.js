@@ -49,7 +49,6 @@ function renderSaved() { const list = $("#saved-list"); list.innerHTML = ""; if 
 function updateSaved() { localStorage.setItem("savedWords", JSON.stringify(savedWords)); $("#saved-count").textContent = savedWords.length; renderSaved(); showWord(currentIndex); }
 function message(text) { $("#status-message").textContent = text; }
 $("#today-date").textContent = new Intl.DateTimeFormat("ko-KR", { year:"numeric", month:"long", day:"numeric", weekday:"long" }).format(new Date());
-$("#card-date").textContent = $("#today-date").textContent;
 $("#journal-input").value = localStorage.getItem("todayReflection") || "";
 $("#journal-form").onsubmit = (event) => { event.preventDefault(); const reflection = $("#journal-input").value.trim(); if (!reflection) { message("한 줄 묵상을 적은 뒤 저장해 보세요."); return; } localStorage.setItem("todayReflection", reflection); message("오늘의 한 줄 묵상을 저장했어요."); };
 document.querySelectorAll(".topic-button").forEach((button) => button.onclick = () => { currentTopic = button.dataset.topic; document.querySelectorAll(".topic-button").forEach((b) => b.classList.toggle("is-active", b === button)); showWord(filtered()[0]); message(`${currentTopic} 주제의 말씀을 보고 있어요.`); });
