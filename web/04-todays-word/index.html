@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>오늘의 말씀</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="page-header"><div><p class="eyebrow">TODAY'S WORD</p><h1>오늘의 말씀</h1><p class="date" id="today-date"></p></div><button class="icon-button" id="theme-button" type="button" aria-label="다크 모드로 바꾸기">☾</button></header>
+    <nav class="topic-list" aria-label="말씀 주제">
+      <button class="topic-button is-active" type="button" data-topic="전체">전체</button><button class="topic-button" type="button" data-topic="위로">위로</button><button class="topic-button" type="button" data-topic="감사">감사</button><button class="topic-button" type="button" data-topic="용기">용기</button><button class="topic-button" type="button" data-topic="평안">평안</button>
+    </nav>
+    <section class="word-card" aria-live="polite"><p class="topic-label" id="topic-label"></p><p class="verse" id="verse-text"></p><p class="reference" id="verse-reference"></p><div class="line"></div><p class="reflection" id="reflection-text"></p><button class="heart-button" id="favorite-button" type="button" aria-label="저장한 말씀에 추가하기">♡</button></section>
+    <div class="actions"><button class="primary-button" id="random-button" type="button">랜덤 말씀 보기 <span>→</span></button><button class="secondary-button" id="share-button" type="button">사이트 공유하기</button><button class="secondary-button" id="saved-button" type="button">저장한 말씀 <span id="saved-count">0</span></button></div>
+    <section class="saved-section" id="saved-section" hidden><div class="saved-heading"><h2>저장한 말씀</h2><button class="text-button" id="close-saved-button" type="button">닫기</button></div><ul class="saved-list" id="saved-list"></ul></section>
+    <p class="hint" id="status-message">주제를 선택하거나 랜덤 버튼을 눌러 보세요.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
